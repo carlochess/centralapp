@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CentralApp</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_galeria">Galeria</string>
+    <string name="title_activity_estado_central">EstadoCentral</string>
+    <string name="title_activity_historial">Historial</string>
+    <string name="title_activity_dialogo">Dialogo</string>
+    <string name="title_activity_poemas">Poemas</string>
+    <string name="title_activity_menu">Menu</string>
+    <string name="title_activity_noticias">Noticias</string>
+    <string name="title_activity_poema">Poema</string>
+    <string name="title_activity_bienvenido">Biblioteca</string>
+    <string name="buscar">Buscar</string>
+    <string name="title_activity_creditos">Creditos</string>
+    <string name="title_activity_actividad_opciones_moodle">Materias</string>
+    <string name="title_activity_calificacion">Calificacion</string>
+    <string name="title_activity_activity_img">Detalles</string>
+    <string name="title_activity_login_gp">LoginGP</string>
+    <string name="title_activity_publicar_poema">Publicar Poema</string>
+    <string name="title_activity_inicio">Inicio</string>
+    <string name="title_activity_reto">Reto</string>
+
+</resources>

@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.greenbug.carlos.Moddle.actividadOpMoodle" >
+    <item android:id="@+id/action_settings"
+        android:title="Configuracion"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item android:id="@+id/sesion"
+        android:title="Cerrar Sesion"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+</menu>

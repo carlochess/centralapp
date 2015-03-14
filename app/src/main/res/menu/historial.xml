@@ -1,0 +1,30 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.greenbug.carlos.Historial.Historial" >
+
+    <item android:id="@+id/action_fecha"
+        android:icon="@drawable/ic_action_time"
+        android:title="@string/buscar"
+        app:showAsAction="always">
+        <menu>
+            <item android:id="@+id/hoy"
+                android:title="Hoy"
+                android:orderInCategory="100"
+                app:showAsAction="never" />
+            <item android:id="@+id/semana"
+                android:title="Semana"
+                android:orderInCategory="100"
+                app:showAsAction="never" />
+            <item android:id="@+id/mes"
+                android:title="Mes"
+                android:orderInCategory="100"
+                app:showAsAction="never" />
+        </menu>
+    </item>
+
+    <item android:id="@+id/action_settings"
+            android:title="@string/action_settings"
+            android:orderInCategory="100"
+            app:showAsAction="never" />
+</menu>

@@ -1,0 +1,290 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#000"
+    tools:context="com.greenbug.carlos.Portal.portal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        tools:context=".MyActivity"
+        >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="2"
+            android:paddingBottom="5dp"
+            android:paddingRight="5dp"
+            android:paddingLeft="0dp"
+            >
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sample_0"/>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:text="Estado central"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:id="@+id/estadoCentral" />
+        </RelativeLayout>
+        <!-- android:background="#ffffbb33" -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minWidth="150dp">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:paddingBottom="5dp"
+                >
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/sample_7"
+                    android:id="@+id/imageView" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+                    android:background="#99000000"
+                    android:text="Galeria"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="#fff"
+
+                    android:src="@drawable/ic_launcher"
+                    android:id="@+id/galeria" />
+
+            </RelativeLayout>
+            <!-- android:background="#3F2711" -->
+            <RelativeLayout
+                android:paddingBottom="5dp"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                >
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/sample_6"/>
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Historial"
+                    android:layout_centerInParent="true"
+                    android:background="#99000000"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="#fff"
+                    android:id="@+id/histoial" />
+            </RelativeLayout>
+            <!-- android:background="#7E4F21" -->
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        tools:context=".MyActivity"
+        >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:paddingRight="5dp"
+            android:paddingLeft="0dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minWidth="150dp">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:paddingBottom="5dp"
+                >
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/sample_4"/>
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+                    android:background="#99000000"
+                    android:text="Estado Tickets"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="#fff"
+
+                    android:src="@drawable/ic_launcher"
+                    android:id="@+id/estadoTickets" />
+            </RelativeLayout>
+            <!-- android:background="#BE7632" -->
+            <RelativeLayout
+                android:paddingBottom="5dp"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:id="@+id/relativo"
+                android:focusable="false">
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/sample_0"
+                    android:id="@+id/imgNoticias" />
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+                    android:background="#99000000"
+                    android:text="Noticias"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="#fff"
+
+                    android:src="@drawable/ic_launcher"
+                    android:id="@+id/noticias" />
+            </RelativeLayout>
+        </LinearLayout>
+        <!-- android:background="#FE9E43" -->
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="2"
+            android:paddingBottom="5dp"
+            >
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sample_2"/>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:text="Menu"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:id="@+id/menu"
+                android:src="@drawable/ic_launcher" />
+        </RelativeLayout>
+    </LinearLayout>
+    <!-- android:background="#E48E3C" -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:paddingRight="5dp"
+            android:paddingLeft="0dp"
+            >
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sample_1"
+                android:id="@+id/imageView2" />
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:background="#99000000"
+                android:text="Campus"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:id="@+id/moodle" />
+        </RelativeLayout>
+        <!--  -->
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:paddingRight="5dp"
+            android:paddingLeft="0dp"
+            >
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sample_3"
+                android:id="@+id/fai" />
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:background="#99000000"
+                android:text="Poemas"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:src="@drawable/ic_launcher"
+                android:id="@+id/poemas" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            >
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sample_5"
+                android:id="@+id/frute" />
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:background="#99000000"
+                android:text="Biblioteca"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:src="@drawable/ic_launcher"
+                android:id="@+id/retos" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
