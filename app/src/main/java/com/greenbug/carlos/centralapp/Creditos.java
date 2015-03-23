@@ -20,7 +20,7 @@ import java.util.Random;
 
 public class Creditos extends ActionBarActivity implements SurfaceHolder.Callback {
 
-    private static final String TAG = "Svetlin SurfaceView";
+    private static final String TAG = "Creditos";
     Bitmap b;
     Paint w;
     Rect dest;
@@ -114,7 +114,6 @@ public class Creditos extends ActionBarActivity implements SurfaceHolder.Callbac
         @Override
         public void run() {
             Canvas canvas;
-            Log.d(TAG, "Starting game loop");
             while (running) {
                 canvas = null;
                 // try locking the canvas for exclusive pixel editing

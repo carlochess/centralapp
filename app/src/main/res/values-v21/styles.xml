@@ -5,4 +5,8 @@
     <style name="ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
         <item name="android:icon">@drawable/ic_launcher</item>
     </style>
+    <style name="myRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/helado</item>
+        <item name="android:indeterminateDrawable">@drawable/heladito</item>
+    </style>
 </resources>

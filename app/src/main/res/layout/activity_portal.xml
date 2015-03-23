@@ -252,7 +252,7 @@
                 android:gravity="center"
                 android:layout_centerInParent="true"
                 android:background="#99000000"
-                android:text="Poemas"
+                android:text="Mapa"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:textColor="#fff"
@@ -286,5 +286,4 @@
         </RelativeLayout>
 
     </LinearLayout>
-
 </LinearLayout>

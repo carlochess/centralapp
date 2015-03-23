@@ -7,7 +7,7 @@ public class prueba {
             "    <title>Campus Virtual - Universidad del Valle</title>\n" +
             "    <link rel=\"shortcut icon\" href=\"https://campusvirtual.univalle.edu.co/moodle/theme/image.php/leatherbound/theme/1414765834/favicon\" />\n" +
             "    <meta name=\"viewport\" content=\"width=device-width, maximum-scale=1.0\" />\n" +
-            "    <meta name=\"description\" content=\"Bienvenidos al Campus Virtual Univalle\n" +
+            "    <meta name=\"descripcion\" content=\"Bienvenidos al Campus Virtual Univalle\n" +
             "La Universidad del Valle pone a disposición de sus docentes y estudiantes esta valiosa herramienta denominada Campus Virtual Univalle bajo la plataforma Moodle. Con esta herramienta se facilitarán los procesos de enseñanza aprendizaje en las asignaturas que ofrece la institución, en sus distintas modalidades educativas, tanto para los Programas de Pregrado y Posgrado.\n" +
             " La Universidad les presenta un cálido saludo y los invita a conocer y a familiarizarse con esta potente herramienta.\n" +
             " \" />\n" +
@@ -37,7 +37,7 @@ public class prueba {
             "		<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\" />\n" +
             "		<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/header.css\"/>\n" +
             "		<title>Campus Virtual-Universidad del Valle</title>\n" +
-            "		<meta name=\"description\" content=\"Bienvenidos al Campus Virtual Univalle\n" +
+            "		<meta name=\"descripcion\" content=\"Bienvenidos al Campus Virtual Univalle\n" +
             "		La Universidad del Valle pone a disposición de sus docentes y estudiantes esta valiosa herramienta denominada Campus Virtual Univalle bajo la plataforma Moodle. Con esta herramienta se facilitarán los procesos de enseñanza aprendizaje en las asignaturas que ofrece la institución, en sus distintas modalidades educativas, tanto para los Programas de Pregrado y Posgrado.\n" +
             "		La Universidad les presenta un cálido saludo y los invita a conocer y a familiarizarse con esta potente herramienta.\" />\n" +
             "		<meta name=\"author\" content=\"DINTEV\"/>\n" +

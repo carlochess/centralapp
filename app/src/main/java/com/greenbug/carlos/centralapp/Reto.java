@@ -18,10 +18,11 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 
 
 public class Reto extends Activity {
-    TextView vista,viewPosicion,viewDestino;
+    TextView vista;
     Location usuario,destino;
     LocationManager locationManager;
     SharedPreferences prefs;
@@ -31,6 +32,7 @@ public class Reto extends Activity {
     int n;
     LinearLayout l;
     float distanciaFic = 0.0f;
+    DecimalFormat df = new DecimalFormat("#.00");
     /**
      Pelicula
      3.3758472,-76.5326928
@@ -64,7 +66,6 @@ public class Reto extends Activity {
         String nivel = nivel();
 
         if(nivel.equals("-1")){
-            // hacer tutorial
             guardarNivel(0);
             n++;
         }
@@ -75,29 +76,22 @@ public class Reto extends Activity {
         destino.setLongitude(longitud[n]);
         destino.setLatitude(latitud[n]);
         vista = (TextView) findViewById(R.id.vi);
-        viewPosicion = (TextView) findViewById(R.id.posicion);
-        viewDestino = (TextView) findViewById(R.id.destino);
+
         actualizarDistancia();
-
-        SeekBar s = (SeekBar) findViewById(R.id.seekBar);
-        s.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
-
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                distanciaFic =progress;
-            }
-        });
+    }
+    LocationListener locationListener ;
+    String provider;
+    @Override
+    protected void onResume() {
+        super.onResume();
+        locationManager.requestLocationUpdates(provider, 0, 0, locationListener );
     }
 
+    @Override
+    protected void onPause() {
+        locationManager.removeUpdates(locationListener );
+        super.onPause();
+    }
 
     public void actualizarFondo(float distancia){
         int limite = 1200;
@@ -173,7 +167,7 @@ public class Reto extends Activity {
         criteria.setCostAllowed(false);
 
 
-        LocationListener locationListener = new LocationListener() {
+        locationListener = new LocationListener() {
             public void onLocationChanged(Location location) {
                 //if(isBetterLocation(usuario, location)){
                     usuario = location;
@@ -187,7 +181,8 @@ public class Reto extends Activity {
 
             public void onProviderDisabled(String provider) {}
         };
-        locationManager.requestLocationUpdates(locationManager.getBestProvider(criteria, true), 1L, 2F, locationListener);
+        provider = locationManager.getBestProvider(criteria, true);
+        locationManager.requestLocationUpdates(provider, 1L, 2F, locationListener);
     }
 
     public void actualizarDistancia(){
@@ -200,12 +195,8 @@ public class Reto extends Activity {
             return;
         }
         float distancia = calcularDistancia(usuario.getLatitude(), usuario.getLongitude(), destino.getLatitude(), destino.getLongitude());
-        vista.setText("Distancia: "+ distancia);
+        vista.setText("Distancia: "+ df.format(distancia)+"m");
         actualizarFondo(distancia);
-        //actualizarFondo(distanciaFic);
-
-        viewPosicion.setText("Actual: "+usuario.getLatitude()+" "+usuario.getLongitude());
-        viewDestino.setText("Destino: "+destino.getLatitude()+" "+destino.getLongitude()+" -> "+ n);
         if(distancia<25){
             subirNivel();
         }

@@ -12,7 +12,7 @@ public class NoticiasUv {
 
     private String title = "title";
     private String link = "link";
-    private String description = "description";
+    private String description = "descripcion";
     private String pubDay = "pubDate";
 
     private String urlString = null;
@@ -52,7 +52,7 @@ public class NoticiasUv {
                         else if(name.equals("link")){
                             link = text;
                         }
-                        else if(name.equals("description")){
+                        else if(name.equals("descripcion")){
                             description = text;
                         }
                         else if(name.equals("pubDate")){

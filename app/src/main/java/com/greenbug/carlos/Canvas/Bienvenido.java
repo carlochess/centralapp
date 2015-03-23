@@ -30,28 +30,8 @@ import com.greenbug.carlos.centralapp.R;
 
 import java.util.Locale;
 
-public class Bienvenido extends ActionBarActivity  implements SensorListener {
-
-    private static final int FORCE_THRESHOLD = 350;
-    private static final int TIME_THRESHOLD = 100;
-    private static final int SHAKE_TIMEOUT = 500;
-    private static final int SHAKE_DURATION = 1000;
-    private static final int SHAKE_COUNT = 3;
-
-    private SensorManager mSensorMgr;
-    private float mLastX=-1.0f, mLastY=-1.0f, mLastZ=-1.0f;
-    private long mLastTime;
-    private OnShakeListener mShakeListener = new OnShakeListener() {
-        @Override
-        public void onShake() {
-            vib.vibrate(400);
-        }
-    };
+public class Bienvenido extends ActionBarActivity{
     private Context mContext;
-    private int mShakeCount = 0;
-    private long mLastShake;
-    private long mLastForce;
-    Vibrator vib;
     TextView t;
     WebView webview;
     TextToSpeech ttobj;
@@ -163,64 +143,6 @@ public class Bienvenido extends ActionBarActivity  implements SensorListener {
             });
         }
     }
-
-
-    //-------------------
-    public interface OnShakeListener
-    {
-        public void onShake();
-    }
-
-    public void resume() {
-        mSensorMgr = (SensorManager)mContext.getSystemService(Context.SENSOR_SERVICE);
-        if (mSensorMgr == null) {
-            throw new UnsupportedOperationException("Sensors not supported");
-        }
-        boolean supported = mSensorMgr.registerListener(this, SensorManager.SENSOR_ACCELEROMETER, SensorManager.SENSOR_DELAY_GAME);
-        if (!supported) {
-            mSensorMgr.unregisterListener(this, SensorManager.SENSOR_ACCELEROMETER);
-            //Toast.makeText(this, "Sin V", Toast.LENGTH_SHORT);
-        }
-    }
-
-    public void pause() {
-        if (mSensorMgr != null) {
-            mSensorMgr.unregisterListener(this, SensorManager.SENSOR_ACCELEROMETER);
-            mSensorMgr = null;
-        }
-    }
-
-    public void onAccuracyChanged(int sensor, int accuracy) { }
-
-    public void onSensorChanged(int sensor, float[] values)
-    {
-        if (sensor != SensorManager.SENSOR_ACCELEROMETER) return;
-        long now = System.currentTimeMillis();
-
-        if ((now - mLastForce) > SHAKE_TIMEOUT) {
-            mShakeCount = 0;
-        }
-
-        if ((now - mLastTime) > TIME_THRESHOLD) {
-            long diff = now - mLastTime;
-            float speed = Math.abs(values[SensorManager.DATA_X] + values[SensorManager.DATA_Y] + values[SensorManager.DATA_Z] - mLastX - mLastY - mLastZ) / diff * 10000;
-            if (speed > FORCE_THRESHOLD) {
-                if ((++mShakeCount >= SHAKE_COUNT) && (now - mLastShake > SHAKE_DURATION)) {
-                    mLastShake = now;
-                    mShakeCount = 0;
-                    if (mShakeListener != null) {
-                        mShakeListener.onShake();
-                    }
-                }
-                mLastForce = now;
-            }
-            mLastTime = now;
-            mLastX = values[SensorManager.DATA_X];
-            mLastY = values[SensorManager.DATA_Y];
-            mLastZ = values[SensorManager.DATA_Z];
-        }
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

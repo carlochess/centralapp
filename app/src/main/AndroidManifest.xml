@@ -1,29 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.greenbug.carlos.centralapp"
     android:versionCode="1"
-    android:versionName="Uchuva">
-	<uses-sdk
+    android:versionName="Uchuva" >
+
+    <uses-sdk
         android:maxSdkVersion="19"
         android:minSdkVersion="10"
         android:targetSdkVersion="8" />
 
-    <uses-feature android:name="android.hardware.camera" />
-
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
-    <permission android:name="com.example.gcm.permission.C2D_MESSAGE" android:protectionLevel="signature" />
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="18" />
     <uses-permission android:name="com.example.gcm.permission.C2D_MESSAGE" />
+    <!--<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />-->
+    <permission android:name="com.example.gcm.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+    <uses-feature android:name="android.hardware.camera" />
 
     <application
         android:name="com.orm.SugarApp"
@@ -50,13 +49,16 @@
         <activity
             android:name=".Inicio"
             android:label="@string/app_name" >
-
         </activity>
         <activity
             android:name="com.greenbug.carlos.Portal.portal"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
-            <intent-filter><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.LAUNCHER" /></intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.greenbug.carlos.Galeria.Galeria"
@@ -113,7 +115,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.greenbug.carlos.Portal.portal" />
-            <!--<intent-filter><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.LAUNCHER" /></intent-filter>-->
         </activity>
         <activity
             android:name="com.greenbug.carlos.Moddle.actividadOpMoodle"
@@ -159,7 +160,15 @@
         <activity
             android:name=".Reto"
             android:label="@string/title_activity_reto" >
+        </activity>
+        <activity
+            android:name="com.greenbug.carlos.RealidadAumentada.RealidadAumentada"
+            android:label="@string/title_activity_realidad_aumentada" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

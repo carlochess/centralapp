@@ -9,16 +9,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 
-import android.support.v7.graphics.Palette;
 import android.text.Html;
 
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -39,6 +35,7 @@ import com.greenbug.carlos.Noticias.activity_Noticias;
 import com.greenbug.carlos.centralapp.R;
 import com.greenbug.carlos.Moddle.Modlefication;
 import com.greenbug.carlos.Moddle.actividadOpMoodle;
+import com.greenbug.carlos.RealidadAumentada.RealidadAumentada;
 import com.greenbug.carlos.centralapp.Reto;
 import com.greenbug.carlos.red.RedPortal;
 
@@ -122,6 +119,14 @@ public class portal extends Activity {
             public boolean onLongClick(View view) {
                 Intent intent = new Intent(c, Reto.class);
                 startActivity(intent);
+                return false;
+            }
+        });
+        poemas.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                /*Intent intent = new Intent(c, RealidadAumentada.class);
+                startActivity(intent);*/
                 return false;
             }
         });
@@ -220,7 +225,7 @@ public class portal extends Activity {
                 crearDialogoMoodlefication();
                 break;
             case 7: // poemas
-                intent = new Intent(this, activity_Poemas.class);
+                intent = new Intent(c, RealidadAumentada.class);
                 startActivity(intent);
                 break;
             case 8: // Biblio

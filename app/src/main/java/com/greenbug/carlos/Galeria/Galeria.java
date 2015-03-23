@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -50,7 +51,7 @@ public class Galeria extends ActionBarActivity {
         gridview.setAdapter(adaptador);
         gridview.setLongClickable(true);
 
-        if( true /* Es primera vez */) {
+        if(primeraVez()) {
             AlertDialog.Builder builder = new AlertDialog.Builder(contexto);
             builder.setMessage("Manten presionada una foto para denunciarla")
                     .setTitle("Denunciar");
@@ -87,6 +88,7 @@ public class Galeria extends ActionBarActivity {
 
                 AlertDialog dialog = builder.create();
                 dialog.show();
+                eliminarMensaje();
                 return true;
             }
         });
@@ -103,6 +105,13 @@ public class Galeria extends ActionBarActivity {
         }catch (Exception e){
             Log.e("Hola", "Error");
         }
+    }
+
+    private void eliminarMensaje() {
+        SharedPreferences sharedpreferences = getSharedPreferences("centralapp", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putString("primeraVezGaleria", "cierto");
+        editor.apply();
     }
 
     private void denunciarFoto(final int posicion){
@@ -122,6 +131,12 @@ public class Galeria extends ActionBarActivity {
             }
         });
 
+    }
+
+    public boolean primeraVez(){
+        SharedPreferences sharedpreferences = getSharedPreferences("centralapp", Context.MODE_PRIVATE);
+        String codigo = sharedpreferences.getString("primeraVezGaleria", "");
+        return codigo.isEmpty();
     }
     private void detallesImagen(int idImg) {
         Intent t = new Intent(this, activityIMG.class);
@@ -189,24 +204,15 @@ public class Galeria extends ActionBarActivity {
 
         public View getView(int position, View convertView, ViewGroup parent) {
 
-            //ImageView view = (ImageView) convertView;
             View view = convertView;
             if (view == null) {
-                //view = new ImageView(contexto);
-                //Inflate the layout
                 LayoutInflater li = getLayoutInflater();
                 view = li.inflate(R.layout.row_grid, null);
 
-                // Add The Text!!!
                 GridViewItem tv = (GridViewItem)view.findViewById(R.id.item_image);
                 TextView t = (TextView) view.findViewById(R.id.grid_item_text);
                 String fecha = imagenes.get(position).getFecha()+" "+imagenes.get(position).getHora();
                 t.setText(fechas(fecha));
-                //tv.setText("Item "+ position );
-
-                // Add The Image!!!
-                //ImageView iv = (ImageView)MyView.findViewById(R.id.grid_item_image);
-                //iv.setImageResource(R.drawable.icon);
                 String url = UtilRed.dirIp+"centralApp/public/imagenes/restaurante/"+imagenes.get(position).getIdImagen()+".jpeg";
                 Picasso.with(contexto).load(url)//.resize(50, 50)
                         .centerCrop().fit().placeholder(R.drawable.sample_0).into(tv);

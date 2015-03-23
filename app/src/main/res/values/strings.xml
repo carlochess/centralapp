@@ -22,5 +22,7 @@
     <string name="title_activity_publicar_poema">Publicar Poema</string>
     <string name="title_activity_inicio">Inicio</string>
     <string name="title_activity_reto">Reto</string>
+    <string name="title_activity_realidad_aumentada">RealidadAumentada</string>
+    <string name="title_activity_mapa">Mapa</string>
 
 </resources>
