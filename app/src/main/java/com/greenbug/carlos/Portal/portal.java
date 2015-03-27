@@ -275,7 +275,6 @@ public class portal extends Activity {
             dialog.show();
             final EditText login = (EditText) dialog.findViewById(R.id.loginEdit);
             final EditText password = (EditText) dialog.findViewById(R.id.passwordEdit);
-
             Button entrar = (Button) dialog.findViewById(R.id.btnentrar);
             entrar.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -294,11 +293,11 @@ public class portal extends Activity {
         Modlefication.conectar(this,antiguo);
     }
 
-    public void entrarActividadMoodle(String login, String password, boolean antiguo){
-        if (Modlefication.htmlObj.usuario != null) {
+    public void entrarActividadMoodle(String login, String password, boolean antiguo, boolean entro){
+        cargando.dismiss();
+        if (entro) {
             //--- Si el login es existoso
             if(!antiguo) {
-
                 SharedPreferences.Editor editor = settings.edit();
                 editor.putString("loginMoodle", login);
                 editor.putString("passwordMoodle", password);
@@ -315,7 +314,6 @@ public class portal extends Activity {
                 }
             });
         }
-        cargando.dismiss();
     }
 
     private void crearDialogoCalificacion(final boolean restaurante) {

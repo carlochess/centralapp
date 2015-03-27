@@ -68,7 +68,17 @@ public class LeyendaView extends View implements View.OnTouchListener{
         canvas.drawBitmap(radar, 0, 0, pintor);
         int radarCentreX = radar.getWidth() / 2;
         int radarCentreY = radar.getHeight() / 2;
-        canvas.drawText(seleccionado, 200, 50, pintor);
+        Paint.Style s = pintor.getStyle();
+
+        //pintor.setStyle(Paint.Style.FILL);
+        pintor.setColor(Color.WHITE);
+        canvas.drawRect(200, 30, canvas.getWidth(), 100, pintor);
+        pintor.setStyle(Paint.Style.STROKE);
+        pintor.setColor(Color.rgb(255, 200, 0));
+        pintor.setStyle(s);
+        pintor.setTextSize(50);
+        canvas.drawText(seleccionado, 200, 80, pintor);
+        pintor.setTextSize(30);
         for (int i = 0; i < puntosRadar.length; i++) {
             Bitmap blip = puntosRadar[i];
             Bitmap spot = puntosRA[i];
@@ -118,14 +128,14 @@ public class LeyendaView extends View implements View.OnTouchListener{
             Punto u = puntos.get(i);
             if(u.seDibuja){
                 Bitmap spot = puntosRA[i];
-                canvas.drawBitmap(spot, u.x, u.y, pintor); //camera spot
+                canvas.drawBitmap(spot, u.x-5, u.y, pintor); //camera spot
                 pintor.setTextSize(30);
                 canvas.drawText(u.descripcion, u.x, u.y, pintor); //text
                 pintor.setTextSize(20);
                 if(u.distc>1000){
-                    canvas.drawText(df.format(u.distc/1000)+"km", u.x+10, u.y+20, pintor);
+                    canvas.drawText(df.format(u.distc/1000)+"km", u.x+30, u.y+20, pintor);
                 }else{
-                    canvas.drawText(df.format(u.distc)+"m", u.x+10, u.y+20, pintor);
+                    canvas.drawText(df.format(u.distc)+"m", u.x+30, u.y+20, pintor);
                 }
                 u.seDibuja = false;
             }

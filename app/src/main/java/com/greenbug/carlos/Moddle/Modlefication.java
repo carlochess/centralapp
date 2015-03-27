@@ -107,7 +107,9 @@ public class Modlefication {
                     html = response.body().string();
                     htmlObj = new Htmlparser(html);
                     if(htmlObj.usuario != null){
-                        p.entrarActividadMoodle(login, password,antiguo);
+                        p.entrarActividadMoodle(login, password,antiguo,true);
+                    }else{
+                        p.entrarActividadMoodle(login, password,antiguo, false);
                     }
                 }
             });

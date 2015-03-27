@@ -18,6 +18,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.greenbug.carlos.centralapp.R;
 
@@ -28,37 +33,31 @@ public class RealidadAumentada extends Activity{
     private String TAG = "RealidadAumentada";
     private SensorManager mSensorManager;
     private Sensor mSensor;
-
-    private final SensorEventListener mListener = new SensorEventListener() {
-        public void onSensorChanged(SensorEvent event) {
-            if (mDrawView != null) {
-                // Angulo entre el norte magnetico y la dirección en la que apunta del celular
-                // Azimuth
-                // 0=Norte, 90=Este, 180=Sur, 270=Oeste
-                mDrawView.setCorreccion(event.values[0]);
-                mDrawView.invalidate();
-            }
-        }
-        public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        }
-    };
+    private SensorEventListener mListener;
     LocationProvider high;
     LocationListener l;
     String provider;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION);
+        mListener = new SensorEventListener() {
+            public void onSensorChanged(SensorEvent event) {
+                if (mDrawView != null) {
+                    // Angulo entre el norte magnetico y la dirección en la que apunta del celular
+                    // Azimuth
+                    // 0=Norte, 90=Este, 180=Sur, 270=Oeste
+                    mDrawView.setCorreccion(event.values[0]);
+                    mDrawView.invalidate();
+                }
+            }
+            public void onAccuracyChanged(Sensor sensor, int accuracy) {
+            }
+        };
         setContentView(R.layout.activity_realidad_aumentada);
-
         final Criteria c = new Criteria();
-        /*c.setAccuracy(Criteria.ACCURACY_FINE);
-        c.setAltitudeRequired(false);
-        c.setBearingRequired(false);
-        c.setSpeedRequired(false);
-        c.setCostAllowed(true);
-        c.setPowerRequirement(Criteria.POWER_HIGH);*/
 
         locMgr = (LocationManager) this.getSystemService(LOCATION_SERVICE);
         if ( !locMgr.isProviderEnabled( LocationManager.GPS_PROVIDER ) ) {
@@ -97,11 +96,19 @@ public class RealidadAumentada extends Activity{
         };
         locMgr.requestLocationUpdates(high.getName(), 0, 0f, l);
         mDrawView = (LeyendaView) findViewById(R.id.drawSurfaceView);
+        /*FrameLayout fr = (FrameLayout) findViewById(R.id.LayoutPrincipal);
+        ImageView img = new ImageView(this);
+        img.setImageResource(R.drawable.ic_launcher);
+        fr.addView(img);
+        Button text = new Button(this);
+        text.setLayoutParams( new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        text.setText(":D");
+        fr.addView(text);*/
     }
 
     private void mostrarMensajeGPS() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Parece que tu GPS no esta encendido, ¿Quieres encenderlo?")
+        builder.setMessage("Parece que tu GPS no esta activado, ¿Quieres encenderlo?")
                 .setCancelable(false)
                 .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                     public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {

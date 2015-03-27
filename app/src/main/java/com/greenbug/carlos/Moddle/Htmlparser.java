@@ -13,13 +13,15 @@ import java.util.ArrayList;
 public class Htmlparser {
     public static final String ACCESO_EXISTOSO = "Usted se ha identificado como ";
     public static final String SALIR = "(Salir)";
-    public static String usuario;
+    public static String usuario="";
     public static ArrayList<Semestre> objSemestres;
 
     Htmlparser(String html){
+        //Log.e("Moodlefication", html);
         Document doc = Jsoup.parse(html);
         usuario = nombreUsuario(doc);
-        Log.e("Moodlefication", usuario);
+        if(usuario!=null)
+            Log.e("Moodlefication", usuario);
         objSemestres = new ArrayList<Semestre>();
         hallarMaterias(doc);
     }
